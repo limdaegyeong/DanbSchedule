@@ -1,1 +1,45 @@
-spring.application.name=scheduleProject
+---
+spring:
+  
+  thymeleaf:
+     cache: false
+     prefix: classpath:/templates/
+     suffix: .html
+     #view-names: thymeleaf/*  
+  
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy : org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+  mvc:
+    view:
+      prefix: /WEB-INF/views/biz/
+      suffix: .jsp
+
+  devtools:
+   livereload: 
+     enabled: false
+---
+
+spring:
+  #profiles: local --> 아래 config.activate.on-profile로 사용함.
+  config:
+    activate:
+      on-profile: local
+   
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://dev.danbplus.com:53306/danbplusSTS_LDG?UTC&allowPublickeyRetrieval=true
+    username: danbplus
+    password: Danb1235!!
+    maximum-pool-size: 5
+    max-lifetime: 1800000
+    idle-timeout: 180000
+    connection-timeout: 5000
+    transaction-isolation: TRANSACTION_READ_UNCOMMITTED     
+     
+     
+     
